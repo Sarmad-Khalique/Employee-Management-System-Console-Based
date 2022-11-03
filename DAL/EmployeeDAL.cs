@@ -5,12 +5,12 @@ namespace DAL
 {
     public class EmployeeDAL:BaseDAL
     {
-        public void SaveEmployee(EmployeeDTO dto)
+        public static void SaveEmployee(EmployeeDTO dto)
         {
             Save(dto);
         }
 
-        public List<EmployeeDTO> ReadAllEmployees()
+        public static List<EmployeeDTO> ReadAllEmployees()
         {
             List<string> data = Read("Employees.txt");
             List<EmployeeDTO> employees = new();

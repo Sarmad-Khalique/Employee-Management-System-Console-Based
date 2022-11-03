@@ -5,27 +5,24 @@ namespace PL
 {
     public class EmployeeView
     {
-        public void InputEmployee()
+        public static void InputEmployee()
         {
             Console.Write("Name: ");
             string name = Console.ReadLine();
             Console.Write("Salary: ");
             int salary = Convert.ToInt32(Console.ReadLine());
 
-            EmployeeDTO dto = new EmployeeDTO
+            EmployeeDTO dto = new()
             {
                 Name = name,
                 Salary = salary
             };
-
-            EmployeeBLL bll = new();
-            bll.SaveEmployee(dto);
+            EmployeeBLL.SaveEmployee(dto);
         }
 
-        public void ShowEmployees()
+        public static void ShowEmployees()
         {
-            EmployeeBLL bll = new();
-            List<EmployeeDTO> employees = bll.GetAllEmployees();
+            List<EmployeeDTO> employees = EmployeeBLL.GetAllEmployees();
 
             Console.Clear();
 

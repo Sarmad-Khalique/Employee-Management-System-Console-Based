@@ -5,18 +5,16 @@ namespace BLL
 {
     public class EmployeeBLL
     {
-        public void SaveEmployee(EmployeeDTO dto)
+        public static void SaveEmployee(EmployeeDTO dto)
         {
             dto.Tax = CalculateTax(dto.Salary);
-            EmployeeDAL dal = new();
-            dal.SaveEmployee(dto);
+
+            EmployeeDAL.SaveEmployee(dto);
         }
 
-        public List<EmployeeDTO> GetAllEmployees()
+        public static List<EmployeeDTO> GetAllEmployees()
         {
-            EmployeeDAL dal = new();
-            List<EmployeeDTO> employees = new List<EmployeeDTO>();
-            employees = dal.ReadAllEmployees();
+            List<EmployeeDTO> employees = EmployeeDAL.ReadAllEmployees();
             foreach (EmployeeDTO employee in employees)
             {
                 employee.Salary *= 2;
@@ -24,7 +22,7 @@ namespace BLL
             return employees;
         }
 
-        public double CalculateTax(int salary)
+        public static double CalculateTax(int salary)
         {
             if (salary <= 100)
             {

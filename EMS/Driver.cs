@@ -19,7 +19,6 @@ namespace EMS
         public static void Main()
         {
             string choice;
-            EmployeeView view = new();
             while (true)
             {
                 Menu();
@@ -28,10 +27,10 @@ namespace EMS
                 switch (choice)
                 {
                     case "1":
-                        view.InputEmployee();
+                        EmployeeView.InputEmployee();
                         break;
                     case "2":
-                        view.ShowEmployees();
+                        EmployeeView.ShowEmployees();
                         break;
                     case "3":
                         return;
